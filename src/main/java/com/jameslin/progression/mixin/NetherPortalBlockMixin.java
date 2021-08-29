@@ -23,7 +23,7 @@ public abstract class NetherPortalBlockMixin extends Block {
     }
 
     /* Redirect the onEntityCollision() method from the EndPortalBlock class to our custom method below. */
-    @Redirect(method = "onEntityCollision()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setInNetherPortal(Lnet/minecraft/util/math/BlockPos;)V"))
+    @Redirect(method = "onEntityCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;setInNetherPortal(Lnet/minecraft/util/math/BlockPos;)V"))
     private void portalControl(Entity entity, BlockPos pos) {
         /* Check to see if the dimension is enabled or disabled */
         boolean dimensionIsDisabled = true;

@@ -24,7 +24,7 @@ public abstract class EndPortalBlockMixin extends BlockWithEntity {
     }
 
     /* Redirect the onEntityCollision() method from the EndPortalBlock class to our custom method below. */
-    @Redirect(method = "onEntityCollision()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;moveToWorld(Lnet/minecraft/server/world/ServerWorld;)Lnet/minecraft/entity/Entity;"))
+    @Redirect(method = "onEntityCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;moveToWorld(Lnet/minecraft/server/world/ServerWorld;)Lnet/minecraft/entity/Entity;"))
     private Entity portalControl(Entity entity, ServerWorld serverWorld) {
         /* Check to see if the dimension is enabled or disabled */
         boolean dimensionIsDisabled = true;
