@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "progression.mixins.json"
   ],
 
   "depends": {
