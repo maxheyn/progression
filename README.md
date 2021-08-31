@@ -10,12 +10,13 @@ Simply place the jar into your server's mod folder and start up your server. Edi
 
 Config:
 
-```json5{
-  "DisableEndDimension": true,
-  "DisableNetherDimension": true,
-  "DisplayDisableMessages": true,
-  "EndDisabledMessage": "-[ The End Dimension is currently disabled by your Server Admin ]-",
-  "NetherDisabledMessage": "-[ The Nether Dimension is currently disabled by your Server Admin ]-",
-  "IsDefaultSettings": false    //change this to true to reset to default settings on next reload
+```json5
+{
+  DisableEndDimension: true, // true to disable, false to enable it
+  DisableNetherDimension: true, // true to disable, false to
+  DisplayDisableMessages: true, // whether or not to show the disabled dimension messages
+  EndDisabledMessage: '-[ The End Dimension is currently disabled by your Server Admin ]-',
+  NetherDisabledMessage: '-[ The Nether Dimension is currently disabled by your Server Admin ]-',
+  IsDefaultSettings: false, // change this to true to reset to default settings on next reload
 }
 ```
