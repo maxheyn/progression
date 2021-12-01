@@ -10,23 +10,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 
-public class Progression implements DedicatedServerModInitializer{
+public class Progression implements DedicatedServerModInitializer {
 
     public static ProgressionConfig config;
     public static ProgressionConfig defaultConfig = ProgressionConfig.getDefaultConfig();
     public static Path pathForTheConfig = Paths.get("config/progression.json");
-    public static Gson configDataStuff = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+    public static Gson configDataStuff = new GsonBuilder().setPrettyPrinting()
+            .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 
     @Override
     public void onInitializeServer() {
         initConfig();
     }
 
-    public static void initConfig(){
+    public static void initConfig() {
         try {
-            if (pathForTheConfig.toFile().exists()){
-                config = configDataStuff.fromJson(new String(Files.readAllBytes(pathForTheConfig)), ProgressionConfig.class);
-                if (config.isDefaultSettings){
+            if (pathForTheConfig.toFile().exists()) {
+                config = configDataStuff.fromJson(new String(Files.readAllBytes(pathForTheConfig)),
+                        ProgressionConfig.class);
+                if (config.isDefaultSettings) {
                     config = defaultConfig;
                     Files.write(pathForTheConfig, Collections.singleton(configDataStuff.toJson(defaultConfig)));
                 }
@@ -34,7 +36,7 @@ public class Progression implements DedicatedServerModInitializer{
                 Files.write(pathForTheConfig, Collections.singleton(configDataStuff.toJson(defaultConfig)));
                 config = defaultConfig;
             }
-        } catch (Exception exception){
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
